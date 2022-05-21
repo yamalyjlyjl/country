@@ -1,0 +1,35 @@
+#include<stdio.h>
+struct Country
+{
+	char name[100];
+	int jp;
+	int yp;
+	int tp;
+	int zs;
+};
+typedef struct Country Country;
+void printCountry(Country c);
+{
+	printf("%s %d %d %d %d\n",c.name,c.jp,c.yp,c.tp,c.zs);
+}
+int main()
+{
+	
+	Country c[8];
+	FILE* fp=fopen("D:/file.txt","r");
+	if(fp==NULL)
+	{
+		printf("Error\n");
+		return 0;
+	}
+	for(int i=0;i<8;i++)
+	{
+		fscanf(fp,"%s %d %d %d",c[i].name,&c[i].jp,&c[i].yp,&c[i].tp,&c[i].zs);
+	}
+	fclose(fp);//关闭文件
+	for(int j=0;j<8;j++)
+	{
+		printCountry(c[i]);
+	}
+	return 0;
+}
